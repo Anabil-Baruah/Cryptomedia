@@ -264,6 +264,7 @@ a:hover {
         justify-content: space-between;
         align-items: center;
         gap: 40px;
+        // color: var(--text-primary);
 
         h2 {
             font-weight: 700;
@@ -271,7 +272,10 @@ a:hover {
             margin-top: 20px;
             color: var(--pink);
         }
+
     }
+
+    
 }
 
 
@@ -607,11 +611,12 @@ a:hover {
             background-color: var(--bgPrimary);
             color: var(--text-primary);
 
-            .ant-table-row{
-                border-bottom:  1px solid #0071bd;
+            .ant-table-row {
+                border-bottom: 1px solid #0071bd;
             }
+
             .ant-table-row:hover {
-                :nth-child(n){
+                :nth-child(n) {
                     background-color: initial;
                 }
             }

@@ -7,7 +7,6 @@ import Loader from './Loader'
 
 function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100
-
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count)
   if (isFetching) return <Loader loading={true} />;
   const [cryptos, setCryptos] = useState([]);

@@ -13,6 +13,7 @@ const { Option } = Select
 
 
 function CryptoDetails() {
+ 
 
   const { coinId } = useParams()
   const [timePeriod, setTimePeriod] = useState('7d')
@@ -109,15 +110,18 @@ function CryptoDetails() {
           </Col>
         </Col>
         <Col className='coin-desc-link'>
-          <Row className='coin-desc'>
+          <Row className='coin-desc'style={{display:'flex'}}>
             <Title level={3} className='coin-details-heading'>
               What is {cryptoDetails?.name}
-              <p>{cryptoDetails?.description}</p>
+              <p
+                style={{marginTop:'1rem'}}
+              >{cryptoDetails?.description}</p>
             </Title>
             {/* {HTMLReactParser(cryptoDetails?.description)} */}
           </Row>
           <Col className='coin-links'>
-            <Title level={3} className='coin-details-heading'>
+            <Title level={3} className='coin-details-heading'
+            >
               {cryptoDetails?.name} Links
             </Title>
             {
