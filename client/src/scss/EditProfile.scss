@@ -1,7 +1,7 @@
-@import './App.scss';
+@import './variables.scss';
 
 .edit-profile-container {
-    margin: 2rem;
+    margin: 0.5rem;
     border-radius: 2rem;
     background-color: var(--bgPrimary);
     height: 100%;
@@ -9,9 +9,6 @@
     padding: 2rem;
 
     .box {
-        lable{
-            color: var(--text-primary);
-        }
         .box-header-basic-info,
         .box-header-socials {
             font-size: 25px;
@@ -26,7 +23,7 @@
             margin-top: 1rem;
             .ant-input {
                 padding: 1rem;
-                background-color: var(--bgSecondary);
+                background-color: var(--input-field-bgcol);
                 color: var(--text-primary);
             }
 
@@ -43,21 +40,22 @@
             margin-top: 1rem;
             .ant-input {
                 padding: 1rem;
-                background-color: var(--bgSecondary);
+                background-color: var(--input-field-bgcol);
+                color: var(--text-primary);
             }
 
             .display-tech-stack {
                 display: flex;
+                flex-wrap: wrap;
                 padding: 1rem 0 1rem 0;
                 gap: 10px;
                 color: var(--text-primary);
                 
                 .tech {
                     display: flex;
-                    // white-space: nowrap;
+                    white-space: nowrap;
                     padding: 0.2rem 0.5rem 0.2rem 0.5rem;
                     border: 1px solid var(--border);
-                    box-shadow: 0 0 10px var(--hover-color);
                     border-radius: 5rem;
                     font-size: 16px;
                     font-weight: 700;
@@ -67,6 +65,13 @@
                         vertical-align: middle;
                         margin: 0 2px 0 2px;
                     }
+                    :nth-child(2){
+                        margin-top: 4px;
+                    }
+                }
+                .tech:hover{
+                    cursor: pointer;
+                    box-shadow: 0 0 20px var(--hover-color);
                 }
             }
         }

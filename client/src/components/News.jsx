@@ -15,13 +15,15 @@ function News({ simplified }) {
   const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 7 : 16 })
   const { data } = useGetCryptosQuery(100)
   if (!cryptoNews?.value) return <Loader loading={true} />;
+
+  console.log(data)
   return (
     <div>
       <Row gutter={[24, 24]}>
         {
           !simplified && (
 
-            <Col span={24} style={{ display: 'flex', justifyContent: 'center' }}>
+            <Col span={24} style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Select
                 showSearch
                 className='select-news'
@@ -32,7 +34,7 @@ function News({ simplified }) {
                 disabled={simplified} // Disable the select if simplified prop is true
               >
                 <Option value="Cryptocurency">Cryptocurrency</Option>
-                {data?.data?.coins?.map((currency) => <Option value={currency.name}>{currency.name}</Option>)}
+                {data?.data?.coins?.map((currency) => <Option value={currency.name} style={{ display: 'flex', justifyContent: 'center' }}>{currency.name}</Option>)}
               </Select>
             </Col>
 
@@ -41,21 +43,23 @@ function News({ simplified }) {
         {
           cryptoNews?.value.map((news, index) => (
             <Col xs={24} sm={24} lg={8} key={index}>
-              <Card hoverable className="card" style={{height:'100%'}}>
+              <Card hoverable className="card" style={{ height: '100%' }}>
                 <a href={news.url} target="blank" rel="noreferrer">
                   <div className="news-header-container">
-                    <img style={{ width: '150px', height: '150px',marginBottom: '1rem' }} src={news?.image?.thumbnail?.contentUrl || demoImage} alt="news" />
-                    <Title className="news-title" style={{color:'var(--text-primary)'}} level={4}>{news.name}</Title>
+                    <img style={{ width: '150px', height: '150px', marginBottom: '1rem' }} src={news?.image?.thumbnail?.contentUrl || demoImage} alt="news" />
+                    <Title className="news-title" style={{ color: 'var(--text-primary)' }} level={4}>{news.name}</Title>
                   </div>
-                  <p>
+                  <p className='news-desc' style={{ color: 'var(--text-primary)' }} >
                     {news.description > 100 ? `${news.description.substring(0, 100)}...` : news.description}
                   </p>
-                  <div className="provider-container flex items-center">
-                    <div>
+                  <div className="provider-container">
+                    <div className='news-source'>
                       <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="avatar" />
-                      <Text className="provider-name">{news.provider[0]?.name}</Text>
+                      <Text className="provider-name" style={{ color: 'var(--text-primary)' }}>{news.provider[0]?.name}</Text>
                     </div>
-                    <Text>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
+                    <div className="news-time">
+                      <Text style={{ color: 'var(--text-primary)' }}>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
+                    </div>
                   </div>
                 </a>
               </Card>
@@ -63,7 +67,7 @@ function News({ simplified }) {
           ))
         }
         {simplified && (
-          <Card hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxHeight: '10rem', marginTop: 'auto', marginBottom: 'auto',backgroundColor:'transparent' }}>
+          <Card hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxHeight: '10rem', marginTop: 'auto', marginBottom: 'auto', backgroundColor: 'transparent' }}>
             <Typography.Text type="secondary" style={{ fontSize: '40px' }}>
               <Link to="/news" style={{ textDecoration: 'none', color: 'var(--text-primary)' }}>
                 Show more +

@@ -6,16 +6,18 @@
   --light-blue: #e6f7ff;
   --border: #d9d9d9;
   --hover-color: rgba(105, 105, 105, 0.7);
+  --input-field-bgcol: #eaeaea;
 }
 
 [data-theme=dark] {
   --text-primary: #fff;
-  --bgPrimary: #001529;
-  --bgSecondary: #000000;
-  --btn-col: #001529;
+  --bgPrimary: rgb(15 23 42);
+  --bgSecondary: rgb(0 0 0);
+  --btn-col: #2563eb;
   --light-blue: #e6f7ff;
   --border: #d9d9d9;
-  --hover-color:rgba(0, 255, 255, 0.7);
+  --hover-color: rgba(0, 255, 255, 0.7);
+  --input-field-bgcol: rgb(30 41 59);
 }
 
 * {
@@ -104,17 +106,55 @@ a:hover {
 }
 @media screen and (max-width: 800px) {
   .main .routes {
-    padding-left: 0;
+    padding-left: 25px;
   }
+}
+
+.crypto-header-card-info {
+  background-color: var(--bgPrimary);
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .card {
   background-color: var(--bgPrimary);
   color: var(--text-primary);
+  border: transparent;
+  height: 100%;
 }
 .card .ant-card-head {
   background-color: var(--bgPrimary);
   color: var(--text-primary);
+}
+.card .ant-card-body {
+  height: 100%;
+}
+.card .news-desc {
+  margin: 2rem 0 3rem 0;
+}
+.card .provider-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+.card .provider-container .news-source {
+  display: flex;
+  white-space: nowrap;
+}
+.card .provider-container .news-source :nth-child(1) {
+  background-color: #d9d9d9;
+}
+.card .provider-container .news-source :nth-child(2) {
+  flex-wrap: wrap;
+}
+.card .provider-container .news-time {
+  margin-right: 2rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px 0 var(--hover-color);
 }
 
 .menu-control-container {
@@ -358,11 +398,6 @@ a:hover {
   margin: 10px 0px !important;
 }
 
-.provider-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .provider-name {
   margin-left: 10px;
 }
@@ -448,6 +483,9 @@ a:hover {
   /* justify-content: center;
   align-items: center; */
 }
+.login .ant-form label {
+  color: var(--text-primary);
+}
 
 .form-container {
   display: flex;
@@ -464,28 +502,41 @@ a:hover {
   height: 100%;
 }
 
-.subscription-card {
+.subscription-hero .ant-typography {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  margin: 10px 0 10px 0;
+}
+@media screen and (max-width: 500px) {
+  .subscription-hero .ant-typography {
+    font-size: 30px;
+  }
+}
+.subscription-hero .subscriptions .subscription-card {
   text-align: center;
 }
-.subscription-card li {
+.subscription-hero .subscriptions .subscription-card li {
   list-style: none;
   margin: 10px 0px;
   font-size: large;
 }
-.subscription-card p {
+.subscription-hero .subscriptions .subscription-card p {
   margin: auto;
 }
-.subscription-card .price {
+.subscription-hero .subscriptions .subscription-card .price {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.subscription-card .price .heading {
+.subscription-hero .subscriptions .subscription-card .price .heading {
   display: flex;
   flex-direction: row;
   align-items: baseline;
 }
-.subscription-card .price Button {
+.subscription-hero .subscriptions .subscription-card .price Button {
   width: 100%;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -493,6 +544,16 @@ a:hover {
   height: fit-content;
   padding: 0.5rem;
   font-size: large;
+}
+.subscription-hero .comparision-table .ant-table-content {
+  background-color: var(--bgPrimary);
+  color: var(--text-primary);
+}
+.subscription-hero .comparision-table .ant-table-content .ant-table-row {
+  border-bottom: 1px solid #0071bd;
+}
+.subscription-hero .comparision-table .ant-table-content .ant-table-row:hover :nth-child(n) {
+  background-color: initial;
 }
 
 .top-navbar {
@@ -502,12 +563,17 @@ a:hover {
   display: flex;
   margin-left: auto;
   justify-content: flex-end;
+  gap: 1rem;
 }
-.top-navbar .user-profile .theme-switcher + .user-content {
+.top-navbar .user-profile :nth-child(n) {
   vertical-align: middle;
 }
-.top-navbar .user-profile .theme-switcher:first-child {
-  margin: 0 20px 0 20px;
+.top-navbar .user-profile .theme-switcher :nth-child(1) {
+  width: 2rem;
+  height: 2rem;
+}
+.top-navbar .user-profile .theme-switcher:hover {
+  cursor: pointer;
 }
 .top-navbar .user-profile .user-content .ant-avatar {
   margin-right: 0.4rem;
@@ -526,6 +592,6 @@ a:hover {
 }
 @media screen and (max-width: 800px) {
   .top-navbar {
-    display: none;
+    padding-right: 10px;
   }
-}/*# sourceMappingURL=App.css.map */
+}

@@ -1,25 +1,7 @@
 // @import './footer.scss';
 // @import './profile.scss';
-
-:root {
-    --text-primary: #000;
-    --bgPrimary: #fff;
-    --bgSecondary: #eaeaea;
-    --btn-col: #fff;
-    --light-blue: #e6f7ff;
-    --border: #d9d9d9;
-    --hover-color: rgba(105, 105, 105, 0.7);
-}
-
-[data-theme="dark"] {
-    --text-primary: #fff;
-    --bgPrimary: #001529;
-    --bgSecondary: #000000;
-    --btn-col: #001529;
-    --light-blue: #e6f7ff;
-    --border: #d9d9d9;
-    --hover-color:rgba(0, 255, 255, 0.7);
-}
+// @import './EditProfile.scss';
+@import './variables.scss';
 
 * {
     margin: 0;
@@ -95,8 +77,6 @@ a:hover {
 
 
 
-
-
 .main {
     flex: 0.83;
     width: 100%;
@@ -118,20 +98,68 @@ a:hover {
         }
 
         @media screen and (max-width:800px) {
-            padding-left: 0;
+            padding-left: 25px;
         }
     }
+}
+
+.crypto-header-card-info {
+    background-color: var(--bgPrimary);
+    padding: 1rem;
+    border-radius: 10px;
+    // width: fit-content;
 }
 
 
 .card {
     background-color: var(--bgPrimary);
     color: var(--text-primary);
+    border: transparent;
+    height: 100%;
 
     .ant-card-head {
         background-color: var(--bgPrimary);
         color: var(--text-primary);
     }
+
+    .ant-card-body {
+        height: 100%;
+    }
+
+    .news-desc {
+        margin: 2rem 0 3rem 0;
+    }
+
+    .provider-container {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+
+        .news-source {
+            display: flex;
+            white-space: nowrap;
+
+            :nth-child(1) {
+                background-color: #d9d9d9;
+            }
+
+            :nth-child(2) {
+                flex-wrap: wrap;
+            }
+        }
+
+        .news-time {
+            margin-right: 2rem;
+            // align-items: flex-end;
+        }
+    }
+}
+
+.card:hover {
+    box-shadow: 0 0 10px 0 var(--hover-color);
+
 }
 
 
@@ -193,7 +221,7 @@ a:hover {
 
     .menu-control-container {
         display: block !important;
-        color: var(--text-primary)!important;
+        color: var(--text-primary) !important;
     }
 
     .ant-menu {
@@ -405,10 +433,7 @@ a:hover {
     margin: 10px 0px !important;
 }
 
-.provider-container {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .provider-name {
     margin-left: 10px;
@@ -500,6 +525,12 @@ a:hover {
     flex-direction: row;
     /* justify-content: center;
     align-items: center; */
+
+    .ant-form {
+        label {
+            color: var(--text-primary);
+        }
+    }
 }
 
 .form-container {
@@ -519,38 +550,72 @@ a:hover {
     height: 100%;
 }
 
-.subscription-card {
-    text-align: center;
-
-
-    li {
-        list-style: none;
-        margin: 10px 0px;
-        font-size: large;
-    }
-
-    p {
-        margin: auto;
-    }
-
-    .price {
+.subscription-hero {
+    .ant-typography {
+        color: var(--text-primary);
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        margin: 10px 0 10px 0;
 
-        .heading {
-            display: flex;
-            flex-direction: row;
-            align-items: baseline;
+        @media screen and (max-width: 500px) {
+            font-size: 30px;
         }
+    }
 
-        Button {
-            width: 100%;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            height: fit-content;
-            padding: 0.5rem;
-            font-size: large;
+    .subscriptions {
+        .subscription-card {
+            text-align: center;
+
+
+            li {
+                list-style: none;
+                margin: 10px 0px;
+                font-size: large;
+            }
+
+            p {
+                margin: auto;
+            }
+
+            .price {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .heading {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                }
+
+                Button {
+                    width: 100%;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    height: fit-content;
+                    padding: 0.5rem;
+                    font-size: large;
+                }
+            }
+        }
+    }
+
+    .comparision-table {
+        .ant-table-content {
+            background-color: var(--bgPrimary);
+            color: var(--text-primary);
+
+            .ant-table-row{
+                border-bottom:  1px solid #0071bd;
+            }
+            .ant-table-row:hover {
+                :nth-child(n){
+                    background-color: initial;
+                }
+            }
+
         }
     }
 }
@@ -561,17 +626,24 @@ a:hover {
     .user-profile {
         display: flex;
         margin-left: auto;
-
         justify-content: flex-end;
+        gap: 1rem;
 
-        .theme-switcher+.user-content {
+        :nth-child(n) {
             vertical-align: middle;
-
         }
 
-        .theme-switcher:first-child {
-            margin: 0 20px 0 20px;
+        .theme-switcher {
+            :nth-child(1) {
+                width: 2rem;
+                height: 2rem;
+            }
         }
+
+        .theme-switcher:hover {
+            cursor: pointer;
+        }
+
 
         .user-content .ant-avatar {
             margin-right: 0.4rem;
@@ -594,6 +666,8 @@ a:hover {
     }
 
     @media screen and (max-width:800px) {
-        display: none;
+        // display: none;
+        // position: fixed;
+        padding-right: 10px;
     }
 }

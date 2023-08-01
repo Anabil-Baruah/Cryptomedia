@@ -1,4 +1,4 @@
-@import './App.scss';
+@import './variables.scss';
 
 .profileImg {
     border-radius: 4px;
@@ -35,16 +35,15 @@
 
     .edit-btn {
         margin-left: auto;
-
+        
         .edit-profile {
+            border: none;
             margin-top: 5.3rem;
+            background-color: var(--btn-col);
             color: var(--text-primary);
-            border-top: 1px solid #fff;
-            border-left: 1px solid #fff;
             // background-color: transparent;
             font-size: large;
             font-weight: 500;
-            background-color: var(--btn-col);
             padding: 1rem;
             border-radius: 30px;
         }
@@ -57,10 +56,16 @@
 
     @media screen and (max-width:800px) {
         align-items: center;
+        flex-direction: column;
+        gap: 1rem;
 
-        .edit-btn .edit-profile {
-            margin-top: 0;
-            margin-bottom: 2.5rem;
+        .edit-btn {
+            
+            margin-left: 0;
+            .edit-profile {
+                margin-top: 0;
+                margin-bottom: 2.5rem;
+            }
         }
     }
 }
@@ -113,7 +118,7 @@
         margin-bottom: 16px;
         height: 100%;
 
-        :nth-child(2){
+        :nth-child(2) {
             margin-top: 1rem;
         }
     }
@@ -125,16 +130,24 @@
         border: 1px solid #ccc;
         margin-bottom: 16px;
         height: 100%;
-        .tech-stacks{
+
+        .tech-stacks {
             display: flex;
+            flex-wrap: wrap;
             margin-top: 1rem;
-            justify-content: space-evenly;
-            .tech{
+            justify-content: center;
+            gap: 10px;
+
+            .tech {
                 background-color: var(--bgPrimary);
                 padding: 4px;
                 border-radius: 5px;
                 color: var(--text-primary);
                 box-shadow: 0 0 5px var(--hover-color);
+            }
+
+            .tech:hover {
+                cursor: pointer;
             }
         }
     }
@@ -146,14 +159,21 @@
         border: 1px solid #ccc;
         margin-bottom: 16px;
         height: 100%;
-        :nth-child(2){
+
+        :nth-child(2) {
             margin-top: 1rem;
         }
     }
 
     @media screen and (max-width:700px) {
-        :nth-child(n){
+        :nth-child(n) {
             display: block;
         }
     }
+}
+
+.profile-details {
+    background-color: var(--bgPrimary);
+    border-radius: 1rem;
+    height: 100%;
 }

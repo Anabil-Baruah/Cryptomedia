@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <div className='nav-container'>
       <div className="logo-container">
-        <Avatar src={icon} size="large" />
+        {/* <Avatar src={icon} size="large" /> */}
         <Typography.Title className='logo' level={2}>
           <Link to="/">Cryptomedia</Link>
         </Typography.Title>
@@ -57,7 +57,7 @@ const Navbar = () => {
               <Link to="/favourits" >My favourits</Link>
             </Menu.Item>
             <Menu.Item icon={<SettingOutlined />}  style={{color: 'var(--text-primary)'}}>
-              <Link to="/settings" >Settings</Link>
+              <Link to="/ProfilePage" >Settings</Link>
             </Menu.Item>
             <Menu.Item icon={<DollarOutlined />} style={{color: 'var(--text-primary)'}}>
               <Link to="/Subscriptions" >Subscription Plans</Link>

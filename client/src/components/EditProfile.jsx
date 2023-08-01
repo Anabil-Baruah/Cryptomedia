@@ -195,7 +195,7 @@ function EditProfile() {
                                         <Input />
                                         <Checkbox
                                             style={{ marginTop: '10px' }}
-                                        > Show this email on your profile</Checkbox>
+                                        > <span style={{ color: 'var(--text-primary)' }}>Show this email on your profile</span></Checkbox>
                                         <br />
                                     <i style={{ color: 'var(--text-primary)' }}>This will publicly show the email in your profile</i>
                                     </Form.Item>

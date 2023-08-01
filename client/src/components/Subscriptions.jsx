@@ -1,22 +1,21 @@
 import React from 'react'
 import { Row, Col, Card, Typography, Button, Table } from 'antd'
-import {dataSource, columns} from './data'
+import { dataSource, columns } from './modals/data'
 
 
 function Subscriptions() {
-   
+
     return (
-        <>
-            <div>
-                <Typography.Text type="secondary"
-                    style={{ fontSize: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className='subscription-hero'>
+            <div className='subscriptions'>
+                <Typography.Text type="secondary">
                     Subscription Plans
                 </Typography.Text>
                 <Row gutter={[16, 16]}>
                     <Col xs={24} sm={12} md={8}>
-                        <Card className='subscription-card'>
+                        <Card className='subscription-card card'>
                             <Typography.Text type="secondary"
-                                style={{ fontSize: '40px', whiteSpace: 'nowrap' }}
+                                style={{ fontSize: '40px', whiteSpace: 'nowrap', color: 'var(--text-primary)' }}
                             >Pro</Typography.Text>
                             <p>Distraction-free trading and investing, with more charts, intervals and indicators</p>
                             <div className="price">
@@ -36,9 +35,9 @@ function Subscriptions() {
                         </Card>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Card className='subscription-card'>
+                        <Card className='subscription-card card'>
                             <Typography.Text type="secondary"
-                                style={{ fontSize: '40px' }}
+                                style={{ fontSize: '40px', color: 'var(--text-primary)' }}
                             >Pro+</Typography.Text>
                             <p>Intraday technical analysis for day traders looking to take things to the next level</p>
                             <div className="price">
@@ -58,9 +57,9 @@ function Subscriptions() {
                         </Card>
                     </Col>
                     <Col xs={24} sm={12} md={8}>
-                        <Card className='subscription-card'>
+                        <Card className='subscription-card card'>
                             <Typography.Text type="secondary"
-                                style={{ fontSize: '40px', whiteSpace: 'nowrap' }}
+                                style={{ fontSize: '40px', whiteSpace: 'nowrap', color: 'var(--text-primary)' }}
                             >Premium</Typography.Text>
                             <p>Highest precision and maximum data to capture all possible opportunities</p>
                             <div className="price">
@@ -81,14 +80,13 @@ function Subscriptions() {
                     </Col>
                 </Row>
             </div>
-            <div className="table" style={{marginTop:'3rem'}}>
-            <Typography.Text type="secondary"
-                    style={{ fontSize: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="comparision-table" style={{ marginTop: '3rem' }}>
+                <Typography.Text type="secondary">
                     Compare Plans
                 </Typography.Text>
-            <Table dataSource={dataSource} columns={columns} />;
+                <Table dataSource={dataSource} columns={columns} />;
             </div>
-        </>
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Row, Card, Switch, Button, Divider } from 'antd'
+import { Col, Row, Card, Switch, Button, Divider, Timeline } from 'antd'
 import anonymousImg from "../images/anonymous.png"
 import PasswordChange from './modals/PasswordChange';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarkerAlt, faCalendar } from '@fortawesome/free-solid-svg-icons';
 // import Divider from './HorizontaLine '
 
-function Settings() {
+function ProfilePage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -36,7 +36,7 @@ function Settings() {
     }
 
     return (
-        <div>
+        <div className='profile-details'>
             <Col span={24} style={{ justifyContent: 'space-between' }}>
 
                 <div className="align-center"
@@ -47,12 +47,14 @@ function Settings() {
                             alt="" />
 
                         <div className="profile-cont">
-                            <div className="profile-cont__item"><span className="name">Anabil Baruah</span></div>
+                            <div className="profile-cont__item"><span className="name"><b>Anabil Baruah</b></span></div>
                             <div className="profile-cont__item"><span className="email">email@mail.com</span></div>
                             <div className="profile-cont__item"><span className="join_date">23 th sept</span></div>
                         </div>
                         <div className="edit-btn">
-                            <button className="edit-profile"><EditOutlined />&nbsp;Edit Profile</button>
+                            <Link to="/EditProfile">
+                                <button className="edit-profile"><EditOutlined />&nbsp;Edit Profile</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -112,6 +114,9 @@ function Settings() {
                                     <div className="tech">Node js</div>
                                     <div className="tech">React js</div>
                                     <div className="tech">MongoDB</div>
+                                    <div className="tech">Figma</div>
+                                    <div className="tech">Adobe XD</div>
+                                    <div className="tech">3D-modeling</div>
                                 </div>
                             </div>
                         </Col>
@@ -124,9 +129,16 @@ function Settings() {
                         </Col>
                     </Row>
                 </div>
+                {/* <div className="timeline">
+                        <Timeline>
+                            <Timeline.Item color="green">Wrote blog</Timeline.Item>
+                            <Timeline.Item color="blue">Written article</Timeline.Item>
+                            <Timeline.Item color="red">Joined cryptomedia</Timeline.Item>
+                        </Timeline>
+                    </div> */}
             </Col>
         </div>
     )
 }
 
-export default Settings
+export default ProfilePage

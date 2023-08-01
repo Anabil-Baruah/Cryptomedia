@@ -7,7 +7,7 @@ import {
   Homepage,
   Cryptocurrencies,
   CryptoDetails, News,
-  Auth, Settings,
+  Auth, ProfilePage,
   Subscriptions,
   TopNavbar,
   EditProfile
@@ -47,7 +47,7 @@ function App() {
                 <Route exact path='/news' element={<News />} />
                 <Route exact path='/login' element={<Auth />} />
                 <Route exact path='/favourits' element={<Favourits />} />
-                <Route exact path='/settings' element={<Settings />} />
+                <Route exact path='/ProfilePage' element={<ProfilePage />} />
                 <Route exact path='/subscriptions' element={<Subscriptions />} />
                 <Route exact path='/EditProfile' element={<EditProfile />} />
               </Routes>

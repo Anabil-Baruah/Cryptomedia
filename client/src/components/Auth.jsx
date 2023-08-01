@@ -6,10 +6,10 @@ import login from '../images/ai.png'
 import google from '../images/google.png'
 
 
-function SignUp() {
+function SignUp({ isLogin, onFinish }) {
     return (
         <Form
-            // onFinish={handleFormSubmit}
+            onFinish={onFinish}
             style={{ width: '100%' }}
         >
 
@@ -55,21 +55,11 @@ function SignUp() {
     )
 }
 
-function Login() {
+function Login({ isLogin, onFinish }) {
 
-    const handleFormSubmit = () => {
-        setLoading(true)
-
-        setTimeout(() => {
-            // Perform login logic here
-
-            // Set loading to false after login request is complete
-            setLoading(false);
-        }, 2000);
-    }
     return (
         <Form
-            onFinish={handleFormSubmit}
+            onFinish={onFinish}
             style={{ width: '100%' }}
         >
 
@@ -117,70 +107,96 @@ function Auth() {
         setLogin(!isLogin)
     }
 
+    const handleFormSubmit = (values) => {
+        // setLoading(true)
+
+        console.log(values)
+        const apiUrl = isLogin ? '/api/login' : '/api/signup';
+        axios.post(apiUrl, values)
+            .then(response => {
+                // Handle successful response
+                console.log('Response:', response);
+                message.success('User registered successfully!');
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error:', error);
+                message.error('Error registering user.');
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }
+
     return (
         <>
             <Loader loading={loading} />
             {!loading && (
-            <div className="login">
-                <div
-                    className="login__image"
-                    style={{ width: '100%', height: '100%' }}
-                >
-                    <Image src={login} alt='login' preview={false} />
-                </div>
+                <div className="login">
+                    <div
+                        className="login__image"
+                        style={{ width: '100%', height: '100%' }}
+                    >
+                        <Image src={login} alt='login' preview={false} />
+                    </div>
 
-                <div className="login__info">
-                    <Col>
-                        <h1
-                            style={{
-                                fontSize: '2.5rem',
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                                marginBottom: '2rem'
-                            }}>Welcome Folks</h1>
-                        <p style={{ display: 'flex', textAlign: 'center' }}>Lorem ipsum,
-                            dolor sit amet consectetur adipisicing elit.
-                            Corrupti nesciunt nisi, sapiente ducimus dolorem tempore,
-                            assumenda inventore pariatur consectetur, quia temporibus
-                            aliquam repellat?</p>
-                        <div style={{
-                            textAlign: 'center',
-                            alignItems: 'center',
-                            display: 'flex',
-                            justifyContent: 'center'
-                        }} >
-                            <Button
-                                type="default"
-                                size="large"
+                    <div className="login__info">
+                        <Col>
+                            <h1
                                 style={{
-                                    borderRadius: '5px',
+                                    fontSize: '2.5rem',
+                                    fontWeight: 'bold',
                                     textAlign: 'center',
-                                    fontSize: '18px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    padding: '30px',
-                                    marginTop: '20px'
-                                }}
-                            >
-                                <Image src={google} style={{ height: '50px', width: '50px' }} alt='google' preview={false} />
-                                <span>Sign {isLogin?"In":"Up"} with Google</span>
-                            </Button>
-                        </div>
-                    </Col>
-                    <Divider />
+                                    marginBottom: '2rem'
+                                }}>Welcome Folks</h1>
+                            <p style={{ display: 'flex', textAlign: 'center' }}>Lorem ipsum,
+                                dolor sit amet consectetur adipisicing elit.
+                                Corrupti nesciunt nisi, sapiente ducimus dolorem tempore,
+                                assumenda inventore pariatur consectetur, quia temporibus
+                                aliquam repellat?</p>
+                            <div style={{
+                                textAlign: 'center',
+                                alignItems: 'center',
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }} >
+                                <Button
+                                    type="default"
+                                    size="large"
+                                    style={{
+                                        borderRadius: '5px',
+                                        textAlign: 'center',
+                                        fontSize: '18px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '10px',
+                                        padding: '30px',
+                                        marginTop: '20px'
+                                    }}
+                                >
+                                    <Image src={google} style={{ height: '50px', width: '50px' }} alt='google' preview={false} />
+                                    <span>Sign {isLogin ? "In" : "Up"} with Google</span>
+                                </Button>
+                            </div>
+                        </Col>
+                        <Divider />
 
-                    <Card>
-                        <div className="form-container">
-                            {isLogin ? <Login /> : <SignUp />}
-                        </div>
-                    </Card>
-                    <h2 style={{ textAlign: 'center', marginTop: '1rem'}}>
-                        {isLogin?"Not registered yet?":"Already have an account?"}
-                        <a onClick={toggleAuth}> {isLogin?"Register":"Login"}</a>
-                    </h2>
+                        <Card className='card'>
+                            <div className="form-container ">
+                                {isLogin ? <Login isLogin={isLogin} onFinish={handleFormSubmit} /> : <SignUp isLogin={isLogin} onFinish={handleFormSubmit} />}
+                            </div>
+                        </Card>
+                        <h2 style={{ textAlign: 'center', marginTop: '1rem' }}>
+                            {isLogin ? "Not registered yet?" : "Already have an account?"}
+                            &nbsp;
+                            <a 
+                            onClick={toggleAuth}
+                            >
+                                 {isLogin ? "Register" : "Login"}
+                            </a>
+                        </h2>
+                    </div>
                 </div>
-            </div>
             )}
         </>
     )

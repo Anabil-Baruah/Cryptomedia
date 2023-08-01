@@ -1,0 +1,21 @@
+:root {
+    --text-primary: #000;
+    --bgPrimary: #fff;
+    --bgSecondary: #eaeaea;
+    --btn-col: #fff;
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+    --hover-color: rgba(105, 105, 105, 0.7);
+    --input-field-bgcol: #eaeaea;
+}
+
+[data-theme="dark"] {
+    --text-primary: #fff;
+    --bgPrimary: rgb(15 23 42);
+    --bgSecondary: rgb(0 0 0);
+    --btn-col: #2563eb;
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+    --hover-color: rgba(0, 255, 255, 0.7);
+    --input-field-bgcol: rgb(30 41 59);
+}

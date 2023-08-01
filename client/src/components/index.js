@@ -6,8 +6,8 @@ export { default as Cryptocurrencies } from './Cryptocurrencies'
 export { default as CryptoDetails } from './CryptoDetails'
 export { default as News } from './News'
 export { default as Auth } from './Auth'
-export { default as Settings } from './Settings'
+export { default as ProfilePage } from './ProfilePage'
 export { default as EditProfile } from './EditProfile'
-export { default as Subscriptions } from './modals/Subscriptions'
+export { default as Subscriptions } from './Subscriptions'
 
 
