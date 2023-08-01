@@ -1,0 +1,159 @@
+@import './App.scss';
+
+.profileImg {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: left;
+    padding: 1rem;
+
+
+    img {
+        height: 12rem;
+        width: 12rem;
+        border-radius: 50%;
+        margin-top: 50px;
+    }
+
+    .profile-cont {
+        vertical-align: middle;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 1rem;
+
+        .profile-cont__item {
+            font-size: large;
+            font-weight: 300;
+        }
+
+        .profile-cont__item:first-child {
+            font-size: x-large;
+            font-weight: 400;
+        }
+    }
+
+    .edit-btn {
+        margin-left: auto;
+
+        .edit-profile {
+            margin-top: 5.3rem;
+            color: var(--text-primary);
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            // background-color: transparent;
+            font-size: large;
+            font-weight: 500;
+            background-color: var(--btn-col);
+            padding: 1rem;
+            border-radius: 30px;
+        }
+
+        .edit-profile:hover {
+            cursor: pointer;
+            box-shadow: 0 0 30px var(--hover-color);
+        }
+    }
+
+    @media screen and (max-width:800px) {
+        align-items: center;
+
+        .edit-btn .edit-profile {
+            margin-top: 0;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+.profile_header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid rgb(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+
+    .social-icon {
+        display: flex;
+        font-size: 20px;
+        font-weight: 300;
+        gap: 20px;
+    }
+
+    .location {
+        display: flex;
+        font-size: 20px;
+        font-weight: 300;
+        gap: 10px;
+    }
+
+    .date {
+        display: flex;
+        font-size: 20px;
+        font-weight: 300;
+        gap: 10px;
+    }
+
+    @media screen and (max-width:700px) {
+        flex-direction: column;
+    }
+}
+
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    // border: 1px solid rgb(0, 0, 0, 0.2);
+    .about-me {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        margin-bottom: 16px;
+        height: 100%;
+
+        :nth-child(2){
+            margin-top: 1rem;
+        }
+    }
+
+    .skills {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        margin-bottom: 16px;
+        height: 100%;
+        .tech-stacks{
+            display: flex;
+            margin-top: 1rem;
+            justify-content: space-evenly;
+            .tech{
+                background-color: var(--bgPrimary);
+                padding: 4px;
+                border-radius: 5px;
+                color: var(--text-primary);
+                box-shadow: 0 0 5px var(--hover-color);
+            }
+        }
+    }
+
+    .availability {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        margin-bottom: 16px;
+        height: 100%;
+        :nth-child(2){
+            margin-top: 1rem;
+        }
+    }
+
+    @media screen and (max-width:700px) {
+        :nth-child(n){
+            display: block;
+        }
+    }
+}
