@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config();
-const port = 3000 || process.env.PORT;
+const port = 8080 || process.env.PORT;
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -23,7 +23,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('./login', require('./routes/login.js'));
+app.use('/api/auth/login', require('./routes/login.js'));
+app.use('/api/auth/signUp', require('./routes/signUp.js'));
 
 
 app.listen(port, () => {

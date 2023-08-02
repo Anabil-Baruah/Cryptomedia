@@ -31,18 +31,6 @@ router.route('/')
             if (passMatch) {
                 var accessToken = jwt.sign({ email: email }, process.env.ACCESS_TOKEN_SECRET);
 
-                // await user.findOneAndUpdate({ email }, {
-                //     $set: {
-                //         accessToken
-                //     }
-                // }, (err, data) => {
-                //     if (!err) {
-                //         res.cookie('jwt', accessToken)
-                //         res.redirect('/')
-                //     } else {
-                //         res.redirect('/login')
-                //     }
-                // })
                 res.cookie('jwt', accessToken, {
                     httpOnly: true
                 })
@@ -68,5 +56,6 @@ router.route('/')
             }
         }
     })
+
 
 module.exports = router

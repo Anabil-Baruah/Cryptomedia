@@ -115,7 +115,6 @@ a:hover {
     background-color: var(--bgPrimary);
     color: var(--text-primary);
     border: transparent;
-    height: 100%;
 
     .ant-card-head {
         background-color: var(--bgPrimary);
@@ -275,7 +274,7 @@ a:hover {
 
     }
 
-    
+
 }
 
 
@@ -533,6 +532,20 @@ a:hover {
     .ant-form {
         label {
             color: var(--text-primary);
+        }
+    }
+
+    .ant-input,
+    .ant-input-password {
+        background-color: var(--input-field-bgcol);
+        color: var(--text-primary);
+        border: none;
+        padding: 15px;
+
+        .ant-input-suffix {
+            span[aria-label="eye-invisible"] {
+                color: var(--text-primary);
+            }
         }
     }
 }

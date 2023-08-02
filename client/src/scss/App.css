@@ -12,7 +12,7 @@
 [data-theme=dark] {
   --text-primary: #fff;
   --bgPrimary: rgb(15 23 42);
-  --bgSecondary: rgb(0 0 0);
+  --bgSecondary: #030912;
   --btn-col: #2563eb;
   --light-blue: #e6f7ff;
   --border: #d9d9d9;
@@ -120,7 +120,6 @@ a:hover {
   background-color: var(--bgPrimary);
   color: var(--text-primary);
   border: transparent;
-  height: 100%;
 }
 .card .ant-card-head {
   background-color: var(--bgPrimary);
@@ -484,6 +483,17 @@ a:hover {
   align-items: center; */
 }
 .login .ant-form label {
+  color: var(--text-primary);
+}
+.login .ant-input,
+.login .ant-input-password {
+  background-color: var(--input-field-bgcol);
+  color: var(--text-primary);
+  border: none;
+  padding: 15px;
+}
+.login .ant-input .ant-input-suffix span[aria-label=eye-invisible],
+.login .ant-input-password .ant-input-suffix span[aria-label=eye-invisible] {
   color: var(--text-primary);
 }
 
