@@ -164,7 +164,6 @@ function Auth() {
         setLogin(!isLogin)
     }
 
-    // useEffect(()=>console.log(localStorage.getItem('accessToken'), 'Toke2'),[])
 
     const handleFormSubmit = (values) => {
         // setLoading(true)
