@@ -168,9 +168,7 @@ function Auth() {
 
     const handleFormSubmit = (values) => {
         // setLoading(true)
-        console.log(values)
         let apiUrl = isLogin ? '/api/auth/login' : '/api/auth/signUp';
-        console.log(apiUrl)
         axios.post(apiUrl, values)
             .then(response => {
                 console.log('Response:', response);

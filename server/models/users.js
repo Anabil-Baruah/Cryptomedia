@@ -7,13 +7,15 @@ const jwt = require('jsonwebtoken');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
     trim: true
   },
+  tagline: String,
+  name: String,
   email: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
     trim: true
   },
@@ -30,11 +32,11 @@ const userSchema = new mongoose.Schema({
 
   metadata: {
     socialLinks: {
-      insta_id: String,
-      linkeding_id: String,
-      facebook_id: String,
-      twitter_id: String,
-      github_id: String,
+      instagram: String,
+      linkedin: String,
+      facebook: String,
+      twitter: String,
+      github: String,
       website: String,
     },
     favourits: [{

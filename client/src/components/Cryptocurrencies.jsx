@@ -8,11 +8,9 @@ import Loader from './Loader'
 function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100
   const { data: cryptoList, isFetching } = useGetCryptosQuery(count)
-  if (isFetching) return <Loader loading={true} />;
   const [cryptos, setCryptos] = useState([]);
   const [search, setSearch] = useState('')
 
-  // console.log(cryptos)
 
   useEffect(() => {
     const filterData = cryptoList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()))
@@ -20,9 +18,12 @@ function Cryptocurrencies({ simplified }) {
   }, [cryptoList, search])
 
 
-  const addFavourite = () => {
-    console.log('add to favourite')
-  }
+
+  if (isFetching) return <Loader loading={true} />;
+
+
+
+
   return (
     <div>
       {!simplified && (
@@ -35,25 +36,25 @@ function Cryptocurrencies({ simplified }) {
           cryptos?.map((currency) => (
             <Col xs={24} sm={12} lg={6} className='crypto-card' key={currency?.id}>
               <Link to={`/crypto/${currency?.uuid}`}>
-                
-                  <Card
-                  className='card'
-                    title={`${currency?.rank}. ${currency?.name}`}
-                    extra={<img className='crypto-image' src={currency?.iconUrl} />}
-                    hoverable
-                  >
-                    <p>Price: {millify(currency?.price)}</p>
-                    <p>Market: {millify(currency?.marketCap)}</p>
-                    <p>Daily change: {millify(currency?.change)}%</p>
 
-                  </Card>
-                
+                <Card
+                  className='card'
+                  title={`${currency?.rank}. ${currency?.name}`}
+                  extra={<img className='crypto-image' src={currency?.iconUrl} />}
+                  hoverable
+                >
+                  <p>Price: {millify(currency?.price)}</p>
+                  <p>Market: {millify(currency?.marketCap)}</p>
+                  <p>Daily change: {millify(currency?.change)}%</p>
+
+                </Card>
+
               </Link>
             </Col>
           ))
         }
         {simplified && (
-          <Card className='card' hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',backgroundColor:'transparent' }}>
+          <Card className='card' hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent' }}>
             <Typography.Text type="secondary" style={{ fontSize: '40px' }}>
               <Link to="/cryptocurrencies" style={{ textDecoration: 'none' }}>
                 Show more +

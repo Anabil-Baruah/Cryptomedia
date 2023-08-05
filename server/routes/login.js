@@ -3,16 +3,13 @@ const user = require('../models/users')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const { baseURL } = require('../auth')
-const { auth2 } = require('../auth')
+const { auth } = require('../auth')
 require('dotenv').config()
 require('cookie-parser');
 // const { OAuth2Client } = require('google-auth-library');
 
 router.route('/')
-    .get(auth2, (req, res) => {
-        res.render('authPage')
-    })
-    .post(auth2, async (req, res) => {
+    .post( async (req, res) => {
         var username = req.body.username;
         var password = req.body.password;
         console.log(req.body)

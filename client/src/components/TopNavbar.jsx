@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Layout, Menu, Switch, Avatar, Dropdown, message, Popconfirm } from 'antd';
-import { UserOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined, SettingOutlined, LoginOutlined } from '@ant-design/icons';
 import sunIcon from '../images/sun_icon.png';
 import moonIcon from '../images/moon_icon.png';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const { Header } = Layout;
 const TopNavbar = ({ user, onThemeToggle }) => {
     const [theme, setTheme] = useState('light');
     const { logout } = useAuth();
+    const { auth } = useAuth()
 
 
     const cancel = (e) => {
@@ -31,18 +32,24 @@ const TopNavbar = ({ user, onThemeToggle }) => {
         newTheme === 'dark' ? setDarkMode() : setLightMode();
     };
     const menu = (
-        <Menu>
+        <Menu size="largest">
             <Menu.Item icon={<SettingOutlined />} key="1">Settings</Menu.Item>
             <Menu.Item key="2" icon={<UserOutlined />}> <Link to="/EditProfile" >Profile</Link></Menu.Item>
             <Popconfirm
                 title="Logout"
                 description="Are you sure want to logout?"
-                onConfirm={logout}
+                onConfirm={!auth ? logout : null}
                 onCancel={cancel}
                 okText="Yes"
                 cancelText="No"
             >
-                <Menu.Item icon={<LogoutOutlined />} key="3">Logout  </Menu.Item>
+                {
+                    !auth ? (
+                        <Menu.Item icon={<LogoutOutlined />} key="3">Logout  </Menu.Item>
+                    ) : (
+                        <Menu.Item icon={<LoginOutlined />} key="3">Login  </Menu.Item>
+                    )
+                }
             </Popconfirm>
         </Menu>
     );

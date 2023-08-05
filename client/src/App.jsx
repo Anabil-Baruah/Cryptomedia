@@ -12,10 +12,9 @@ import {
   EditProfile,
   RequireAuth
 } from './components'
-import './scss/App.css'
-import './scss/footer.css'
-import './scss/profile.css'
-import './scss/EditProfile.css'
+import './scss/App.scss'
+import './scss/footer.scss'
+import './scss/profile.scss'
 import Favourits from './components/Favourits'
 import Footer from './components/Footer'
 import useAuth from './hooks/useAuth'
@@ -24,7 +23,6 @@ function App() {
 
   const { auth } = useAuth()
   const isLogin = auth.accessToken ? true : false
-  console.log(isLogin, "token")
 
   const user = {
     name: 'John Doe'
@@ -51,11 +49,11 @@ function App() {
                 <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
                 <Route exact path="/news" element={<News />} />
                 <Route exact path="/favourits" element={<Favourits />} />
-                <Route exact path="/ProfilePage" element={<ProfilePage />} />
                 <Route exact path="/subscriptions" element={<Subscriptions />} />
                 {/* Only render the "EditProfile" component when the user is authenticated */}
                 <Route element={<RequireAuth />}>
                   <Route exact path="/EditProfile" element={<EditProfile />} />
+                  <Route exact path="/ProfilePage" element={<ProfilePage />} />
                 </Route>
                 {/* Render the "Login" component only when the user is not authenticated */}
                 <Route exact path="/login" element={!isLogin ? <Auth /> : <Homepage />} />

@@ -56,9 +56,6 @@ const Navbar = () => {
             <Menu.Item icon={<StarFilled />} style={{color: 'var(--text-primary)'}}>
               <Link to="/favourits" >My favourits</Link>
             </Menu.Item>
-            <Menu.Item icon={<SettingOutlined />}  style={{color: 'var(--text-primary)'}}>
-              <Link to="/ProfilePage" >Settings</Link>
-            </Menu.Item>
             <Menu.Item icon={<DollarOutlined />} style={{color: 'var(--text-primary)'}}>
               <Link to="/Subscriptions" >Subscription Plans</Link>
             </Menu.Item>
