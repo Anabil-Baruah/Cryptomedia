@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import { Form, Input, Button, Image, Card, Row, Col, notification } from 'antd'
+import React, { useState, useContext, useEffect } from 'react'
+import useAuth from '../hooks/useAuth'
+import { Form, Input, Button, Image, Card, Row, Col, message } from 'antd'
 import Divider from './HorizontaLine '
 import Loader from './Loader'
-import login from '../images/ai.png'
+import loginImg from '../images/ai.png'
 import google from '../images/google.png'
-import axios from 'axios'
 import useNotificationManager from './helperFunctions/notifications';
 import { validatePassword } from './helperFunctions/formValidators'
+import axios from '../services/axios.js'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+
 
 
 function SignUp({ isLogin, onFinish }) {
@@ -149,36 +152,52 @@ function Login({ isLogin, onFinish }) {
 function Auth() {
     const [loading, setLoading] = useState(false)
     const [isLogin, setLogin] = useState(true)
-    const { showNotification , contextHolder} = useNotificationManager();
+    const { showNotification, contextHolder } = useNotificationManager();
     const [form] = Form.useForm();
+    const { setAuth, login } = useAuth()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const toggleAuth = () => {
         setLogin(!isLogin)
     }
 
+    // useEffect(()=>console.log(localStorage.getItem('accessToken'), 'Toke2'),[])
+
     const handleFormSubmit = (values) => {
         // setLoading(true)
         console.log(values)
         let apiUrl = isLogin ? '/api/auth/login' : '/api/auth/signUp';
-        apiUrl = `http://localhost:8080${apiUrl}`
         console.log(apiUrl)
         axios.post(apiUrl, values)
             .then(response => {
-                // Handle successful response
                 console.log('Response:', response);
-                // message.success('User registered successfully!');
                 if (response.status === 200) {
+                    showNotification('bottomRight', response.data)
+                    const accessToken = response?.data?.message.accessToken;
+                    login(accessToken)
+
+                    // login(localStorage.getItem('accessToken', accessToken))
+
+                    setAuth({
+                        username: values.username,
+                        password: values.password,
+                        accessToken: accessToken
+                    })
+                    navigate(from, { replace: true })
+                    message.success(`Welcome ${values.username}!}`)
+                } else {
                     showNotification('bottomRight', response.data)
                 }
             })
             .catch(error => {
-                // Handle error
-                console.error('Error:', error);
-                // message.error('Error registering user.');
+                // console.error('Error:', error.response.data);
+                showNotification('bottomRight', error.response.data)
             })
             .finally(() => {
-                form.resetFields() 
+                form.resetFields()
                 setLoading(false);
             });
     }
@@ -194,7 +213,7 @@ function Auth() {
                         className="login__image"
                         style={{ width: '100%', height: '100%' }}
                     >
-                        <Image src={login} alt='login' preview={false} />
+                        <Image src={loginImg} alt='login' preview={false} />
                     </div>
 
                     <div className="login__info">
@@ -241,7 +260,7 @@ function Auth() {
                         <Card className='card'>
                             <div className="form-container ">
                                 {isLogin ? <Login isLogin={isLogin} onFinish={handleFormSubmit} /> :
-                                 <SignUp isLogin={isLogin} onFinish={handleFormSubmit} />}
+                                    <SignUp isLogin={isLogin} onFinish={handleFormSubmit} />}
                             </div>
                         </Card>
                         <h2 style={{ textAlign: 'center', marginTop: '1rem' }}>

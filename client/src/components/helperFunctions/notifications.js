@@ -11,6 +11,7 @@ const useNotificationManager = () => {
       message: message.message.header,
       description: message.message.desc,
       placement,
+      duration: 3
     });
   };
 

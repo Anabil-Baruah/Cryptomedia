@@ -18,10 +18,17 @@ router.route('/')
 
         retypePassword !== password ? res.send('Password dosent matches') : null;
 
-        const userExist = await user.findOne({ email })
+        const userExist = await user.findOne({ username })
+        const emailExist = await user.findOne({ email })
 
-        if (userExist) {
-            return res.json({ status: "error", "message": "Sorry user already exists" })
+        if (userExist || emailExist) {
+            return res.json({
+                type: 'warning',
+                message: {
+                    header: 'Account already exists',
+                    desc: 'Sign in to continue'
+                }
+            })
         }
         const newUser = new user({
             username: username,
@@ -49,11 +56,16 @@ router.route('/')
                     header: 'Welcome',
                     desc: 'Account created succesfully'
                 }
-
             })
         }
         else {
-            res.json({ message: err.message, type: 'danger' })
+            res.json({
+                type: 'error',
+                message: {
+                    header: 'Sorry !!!',
+                    desc: 'Some error occured please try later'
+                }
+            })
         }
     })
 
