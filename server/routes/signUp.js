@@ -16,7 +16,7 @@ router.route('/')
         const username = req.body.username
         const email = req.body.email
 
-        retypePassword !== password ? res.send('Password dosent matches') : null;
+        retypePassword !== password ? res.status(400).send('Password dosent matches') : null;
 
         const userExist = await user.findOne({ username })
         const emailExist = await user.findOne({ email })
@@ -54,7 +54,8 @@ router.route('/')
                 type: 'success',
                 message: {
                     header: 'Welcome',
-                    desc: 'Account created succesfully'
+                    desc: 'Account created succesfully',
+                    accessToken: token
                 }
             })
         }

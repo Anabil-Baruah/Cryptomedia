@@ -39,10 +39,11 @@ const userSchema = new mongoose.Schema({
       github: String,
       website: String,
     },
-    favourits: [{
-      coin_id: String,
-      coin_name: String,
-    }]
+    favourits: {
+      type: [String], 
+      default: [],   
+      unique: true,
+    }
   }
 });
 
@@ -55,7 +56,7 @@ userSchema.pre('save', async function (next) {
 
 userSchema.methods.generateAuthToken = async function () {
   try {
-    const token = await jwt.sign({ _id: this._id }, "himanmynameisanabilbaruahandimlearningmernstack")
+    const token = await jwt.sign({ email: this.email }, "himanmynameisanabilbaruahandimlearningmernstack")
     this.accessToken = token
     await this.save();
     return token;

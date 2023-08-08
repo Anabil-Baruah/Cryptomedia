@@ -4,11 +4,16 @@ import { message } from 'antd'
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({ accessToken: localStorage.getItem('accessToken') })
+    const initialState={
+        accessToken: localStorage.getItem('accessToken'),
+        username:localStorage.getItem('username')
+    }
+    const [auth, setAuth] = useState( initialState )
 
-    const login = (token) => {
+    const login = (token, username) => {
         localStorage.setItem('accessToken', token);
-        setAuth({ accessToken: token });
+        localStorage.setItem('username', username);
+        setAuth({ accessToken: token, username });
     };
 
     const logout = () => {

@@ -174,17 +174,10 @@ function Auth() {
                 if (response.status === 200) {
                     showNotification('bottomRight', response.data)
                     const accessToken = response?.data?.message.accessToken;
-                    login(accessToken)
-
-                    // login(localStorage.getItem('accessToken', accessToken))
-
-                    setAuth({
-                        username: values.username,
-                        password: values.password,
-                        accessToken: accessToken
-                    })
+                    login(accessToken, values.username)
+                                        
                     navigate(from, { replace: true })
-                    message.success(`Welcome ${values.username}!}`)
+                    message.success(`Welcome ${values.username}}`)
                 } else {
                     showNotification('bottomRight', response.data)
                 }

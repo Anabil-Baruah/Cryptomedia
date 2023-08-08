@@ -28,7 +28,10 @@ export const cryptoApi = createApi({
         }),
         getCryptoHistory: builder.query({
             query: ({ coinId, timeperiod }) => `coin/${coinId}/history?timeperiod=${timeperiod}`
-        })
+        }),
+        getFavourites: builder.query({
+            query: (uuids) => `/coins?uuids=${uuids.join(',')}`
+        })  
     }),
 })
 
@@ -37,4 +40,5 @@ export const {
     useGetCryptosQuery,
     useGetCryptoDetailsQuery,
     useGetCryptoHistoryQuery,
+    useGetFavouritesQuery
 } = cryptoApi

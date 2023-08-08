@@ -4,6 +4,7 @@ import { Card, Row, Col, Input, Typography } from 'antd'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import millify from 'millify'
 import Loader from './Loader'
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
 function Cryptocurrencies({ simplified }) {
   const count = simplified ? 10 : 100
@@ -43,9 +44,16 @@ function Cryptocurrencies({ simplified }) {
                   extra={<img className='crypto-image' src={currency?.iconUrl} />}
                   hoverable
                 >
-                  <p>Price: {millify(currency?.price)}</p>
-                  <p>Market: {millify(currency?.marketCap)}</p>
-                  <p>Daily change: {millify(currency?.change)}%</p>
+                  <p>Price:  &nbsp;{millify(currency?.price)}</p>
+                  <p>Market: &nbsp; {millify(currency?.marketCap)}</p>
+                  <p>Daily change:
+                    &nbsp;
+                    {millify(currency?.change)}%
+                    &nbsp;
+                    {currency?.change > 0 ?
+                      <CaretUpOutlined style={{ color: 'lightgreen' }} /> :
+                      <CaretDownOutlined style={{ color: 'red' }} />}
+                  </p>
 
                 </Card>
 

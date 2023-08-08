@@ -235,6 +235,27 @@ a:hover {
 
 .coin-detail-container {
     margin: 30px;
+
+    .add-to-fav {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+
+        .ant-btn {
+            background-color: var(--bgPrimary);
+            color: var(--text-primary);
+        }
+
+        .ant-btn:hover {
+            box-shadow: 0 0 10px 0 var(--hover-color);
+        }
+    }
+
+    .price-container {
+        :nth-child(n) {
+            color: var(--text-primary);
+        }
+    }
 }
 
 .coin-heading-container {
@@ -242,7 +263,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-bottom: 1px solid var(--border);
     padding-top: 20px;
     padding-bottom: 20px;
     gap: 10px;
@@ -273,7 +293,6 @@ a:hover {
         }
 
     }
-
 
 }
 

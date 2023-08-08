@@ -1,14 +1,32 @@
 import React, { useEffect } from 'react';
 import { Col, Row, Card } from 'antd';
-import { useGetCryptosQuery } from '../services/cryptoApi'
+import { useGetFavouritesQuery } from '../services/cryptoApi'
 import { StarFilled, DeleteOutlined } from '@ant-design/icons';
 import Loader from './Loader';
 import millify from 'millify'
+import axios from '../services/axios'
 
 function Favourites() {
-  const { data: cryptoList, isFetching } = useGetCryptosQuery(10)
-  if (isFetching) return <Loader loading={true} />;
-  const cryptos = cryptoList.data.coins
+
+  useEffect(() => {
+
+    axios.get('/api/favourites')
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
+  }, [])
+
+
+  const filteredUUIDs = ['razxDUgYGNAdQ', 'HIVsRcGKkPFtW'];
+
+  const { data: filteredCryptos, isFetchingFilter } = useGetFavouritesQuery(filteredUUIDs);
+  if (isFetchingFilter) return <Loader loading={true} />;
+  const cryptos = filteredCryptos?.data.coins
+  console.log(filteredCryptos)
   return (
     <div>
       <Row gutter={[16, 16]}>

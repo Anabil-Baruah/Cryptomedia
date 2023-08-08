@@ -13,7 +13,9 @@ const TopNavbar = ({ user, onThemeToggle }) => {
     const [theme, setTheme] = useState('light');
     const { logout } = useAuth();
     const { auth } = useAuth()
+    const username = auth.username
 
+    const isLogin = auth.accessToken ? true : false
 
     const cancel = (e) => {
         console.log(e);
@@ -34,20 +36,20 @@ const TopNavbar = ({ user, onThemeToggle }) => {
     const menu = (
         <Menu size="largest">
             <Menu.Item icon={<SettingOutlined />} key="1">Settings</Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />}> <Link to="/EditProfile" >Profile</Link></Menu.Item>
+            <Menu.Item key="2" icon={<UserOutlined />}> <Link to="/ProfilePage" >Profile</Link></Menu.Item>
             <Popconfirm
                 title="Logout"
                 description="Are you sure want to logout?"
-                onConfirm={!auth ? logout : null}
+                onConfirm={isLogin ? logout : null}
                 onCancel={cancel}
                 okText="Yes"
                 cancelText="No"
             >
                 {
-                    !auth ? (
-                        <Menu.Item icon={<LogoutOutlined />} key="3">Logout  </Menu.Item>
-                    ) : (
+                    !isLogin ? (
                         <Menu.Item icon={<LoginOutlined />} key="3">Login  </Menu.Item>
+                    ) : (
+                        <Menu.Item icon={<LogoutOutlined />} key="3">Logout </Menu.Item>
                     )
                 }
             </Popconfirm>
@@ -65,7 +67,7 @@ const TopNavbar = ({ user, onThemeToggle }) => {
                 <Dropdown overlay={menu} placement="bottomRight" arrow>
                     <div className="user-content">
                         <Avatar icon={<UserOutlined />} />
-                        <span className="user-name">{user.name}</span>
+                        <span className="user-name">{isLogin ? username : "Sign In"}</span>
                     </div>
                 </Dropdown>
             </div>

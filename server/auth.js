@@ -6,11 +6,12 @@ require('dotenv').config()
 const auth = async (req, res, next) => {
     try {
         let token = req.headers.authorization;
-        // console.log(token)
-        token = token.replace('Bearer ', '')
         const verifyUser = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
+        // console.log(verifyUser)
         const user = await register.findOne({ email: verifyUser.email });
+
+
         if (verifyUser == null)
             return res.status(400).json({
                 type: 'error',
