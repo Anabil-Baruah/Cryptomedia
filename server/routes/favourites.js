@@ -7,13 +7,18 @@ router.route('/')
         const user = req.user
         // console.log(user)
         if (user === null) {
-            return res.status(400)
+            return res.status(400).json({ message: 'User not found' })
         }
         const userFound = await User.findOne({ accessToken: user.accessToken })
-        return
-        if (favourites) {
-            return res.status(200).json({ favourites: favourites.metadata.favourits })
+        const favourites = userFound.metadata.favourits
+
+
+        if (favourites.length > 0) {
+            return res.status(200).json({ favourites })
+        } else {
+            return res.status(200).json({ message: 'No favourites found' })
         }
+
     })
     .post(auth, async (req, res) => {
         const user = req.user
