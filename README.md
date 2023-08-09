@@ -3,11 +3,6 @@
 ![Home page](./client/public/HomePageSC.png)
 
 Welcome to Cryptomedia! This application provides real-time information about cryptocurrencies, their rankings, and related news. Stay up-to-date with the latest trends, prices, and news in the crypto world with this easy-to-use web application.
-
-## Demo
-
-https://main--dreamy-jelly-bf237f.netlify.app
-
 ## Tech stack
 
 <div style="dispaly:flex;">
@@ -21,6 +16,11 @@ https://main--dreamy-jelly-bf237f.netlify.app
 
 <img src="https://www.vectorlogo.zone/logos/sass-lang/sass-lang-icon.svg" alt="gcp" width="40" height="40"/> 
 </div>
+
+## Demo
+
+https://main--dreamy-jelly-bf237f.netlify.app
+
 
 ## Installation
 
