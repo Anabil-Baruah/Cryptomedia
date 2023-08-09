@@ -19,6 +19,8 @@ https://main--dreamy-jelly-bf237f.netlify.app
 
 <img src="./client/public/redux.svg" alt="gcp" width="40" height="40"/> 
 </div>
+<img src="https://www.vectorlogo.zone/logos/sass-lang/sass-lang-icon.svg" alt="gcp" width="40" height="40"/> 
+</div>
 
 ## Installation
 
