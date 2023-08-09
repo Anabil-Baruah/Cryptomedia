@@ -6,6 +6,22 @@ Welcome to our Crypto App! This application provides real-time information about
 ## Demo
 
 https://main--dreamy-jelly-bf237f.netlify.app
+
+## Tech stack
+
+- Node / Express.JS
+
+<img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="gcp" width="40" height="40"/> 
+
+- Mongo DB
+
+<img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="gcp" width="40" height="40"/> 
+- React 
+<img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="gcp" width="40" height="40"/> 
+
+- Redux
+<img src="./client/public/redux.svg" alt="gcp" width="40" height="40"/> 
+
 ## Installation
 
 To use this app, you'll need to have Node.js , npm and mongoDB installed on your machine.
@@ -32,15 +48,6 @@ Change the directory and start the react app
 ```bash
 cd client
 ```
-## Tech stack
-
-- Node / Express.JS
-
-- Mongo DB
-
-- React 
-
-- Redux
 
 
 
