@@ -9,17 +9,13 @@ https://main--dreamy-jelly-bf237f.netlify.app
 
 ## Tech stack
 
-- Node / Express.JS
 
 <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="gcp" width="40" height="40"/> 
 
-- Mongo DB
-
 <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="gcp" width="40" height="40"/> 
-- React 
+
 <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="gcp" width="40" height="40"/> 
 
-- Redux
 <img src="./client/public/redux.svg" alt="gcp" width="40" height="40"/> 
 
 ## Installation
