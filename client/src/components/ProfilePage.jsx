@@ -1,39 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row, Card, Switch, Button, Divider, Timeline } from 'antd'
 import anonymousImg from "../images/anonymous.png"
 import PasswordChange from './modals/PasswordChange';
 import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
+import axios from '../services/axios'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarkerAlt, faCalendar } from '@fortawesome/free-solid-svg-icons';
 // import Divider from './HorizontaLine '
+import { formatDate } from './helperFunctions/formValidators'
 
 function ProfilePage() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+    const [username, setUsername] = useState()
+    const [email, setemail] = useState()
+    const [date, setdate] = useState()
+    const [linkedin, setlinkedin] = useState()
+    const [instagram, setinstagram] = useState()
+    const [facebook, setfacebook] = useState()
+    const [website, setwebsite] = useState()
+    const [twitter, settwitter] = useState()
 
-    function setDarkMode() {
-        document.querySelector('.app').setAttribute('data-theme', 'dark')
-    }
-    function setLightMode() {
-        document.querySelector('.app').setAttribute('data-theme', 'light')
-    }
-    const toggleTheme = (e) => {
-        if (e)
-            setDarkMode()
-        else
-            setLightMode()
-    }
+    
+
+    useEffect(() => {
+        axios.get('/api/getProfile')
+            .then(res => {
+                console.log(res.data)
+                
+                setdate(formatDate(res.data.user.createdAt))
+                setUsername(res.data.user.username)
+                setemail(res.data.user.email)
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
+
+
 
     return (
         <div className='profile-details'>
@@ -47,9 +53,9 @@ function ProfilePage() {
                             alt="" />
 
                         <div className="profile-cont">
-                            <div className="profile-cont__item"><span className="name"><b>Anabil Baruah</b></span></div>
-                            <div className="profile-cont__item"><span className="email">email@mail.com</span></div>
-                            <div className="profile-cont__item"><span className="join_date">23 th sept</span></div>
+                            <div className="profile-cont__item"><span className="name"><b>{username}</b></span></div>
+                            <div className="profile-cont__item"><span className="email">{email}</span></div>
+                            <div className="profile-cont__item"><span className="join_date">{date}</span></div>
                         </div>
                         <div className="edit-btn">
                             <Link to="/EditProfile">
@@ -109,14 +115,13 @@ function ProfilePage() {
                         </Col>
                         <Col xs={24} sm={8}>
                             <div className="skills">
-                                <h2>My tech stacks:</h2>
+                                <h2>Im interested in:</h2>
                                 <div className="tech-stacks">
-                                    <div className="tech">Node js</div>
-                                    <div className="tech">React js</div>
-                                    <div className="tech">MongoDB</div>
-                                    <div className="tech">Figma</div>
-                                    <div className="tech">Adobe XD</div>
-                                    <div className="tech">3D-modeling</div>
+                                    <div className="tech">Day trading</div>
+                                    <div className="tech">Join ventures</div>
+                                    <div className="tech">Swing trading</div>
+                                    <div className="tech">Bitcoin</div>
+                                    <div className="tech">Block chain</div>
                                 </div>
                             </div>
                         </Col>

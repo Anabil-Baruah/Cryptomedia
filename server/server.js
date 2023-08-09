@@ -27,6 +27,7 @@ app.use('/api/auth/login', require('./routes/login.js'));
 app.use('/api/auth/signUp', require('./routes/signUp.js'));
 app.use('/api/editProfile', require('./routes/editProfile.js'));
 app.use('/api/favourites', require('./routes/favourites.js'));
+app.use('/api/getProfile', require('./routes/getProfile.js'));
 
 
 app.listen(port, () => {
