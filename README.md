@@ -2,6 +2,10 @@
 # Cryptomedia
 
 Welcome to our Crypto App! This application provides real-time information about cryptocurrencies, their rankings, and related news. Stay up-to-date with the latest trends, prices, and news in the crypto world with this easy-to-use web application.
+
+## Demo
+
+https://main--dreamy-jelly-bf237f.netlify.app
 ## Installation
 
 To use this app, you'll need to have Node.js , npm and mongoDB installed on your machine.
