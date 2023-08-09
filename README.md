@@ -1,4 +1,5 @@
 
+![Home page](./client/public/HomePageSC.png)
 # Cryptomedia
 
 Welcome to our Crypto App! This application provides real-time information about cryptocurrencies, their rankings, and related news. Stay up-to-date with the latest trends, prices, and news in the crypto world with this easy-to-use web application.
