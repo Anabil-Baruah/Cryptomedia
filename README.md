@@ -12,7 +12,7 @@ Welcome to Cryptomedia! This application provides real-time information about cr
 
 <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="gcp" width="40" height="40"/> 
 
-<img src="./client/public/redux.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://brandeps.com/logo-download/R/Redux-logo-vector-01.svg" alt="gcp" width="40" height="40"/> 
 
 <img src="https://www.vectorlogo.zone/logos/sass-lang/sass-lang-icon.svg" alt="gcp" width="40" height="40"/> 
 </div>
