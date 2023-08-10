@@ -6,15 +6,15 @@ Welcome to Cryptomedia! This application provides real-time information about cr
 ## Tech stack
 
 <div style="dispaly:flex;">
-<img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="node js" width="40" height="40"/> 
 
-<img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" width="40" height="40"/> 
 
-<img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="react JS" width="40" height="40"/> 
 
-<img src="https://brandeps.com/logo-download/R/Redux-logo-vector-01.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://brandeps.com/logo-download/R/Redux-logo-vector-01.svg" alt="Redux" width="40" height="40"/> 
 
-<img src="https://www.vectorlogo.zone/logos/sass-lang/sass-lang-icon.svg" alt="gcp" width="40" height="40"/> 
+<img src="https://www.vectorlogo.zone/logos/sass-lang/sass-lang-icon.svg" alt="Sass" width="40" height="40"/> 
 </div>
 
 ## Demo
