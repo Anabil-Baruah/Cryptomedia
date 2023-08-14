@@ -6,5 +6,5 @@ const jwtToken = localStorage.getItem('accessToken');
 axios.defaults.headers.common['Authorization'] = `${jwtToken}`;
 
 export default axios.create({
-    baseURL: baseURL,
+    baseURL: baseURL, 
 })

@@ -27,16 +27,20 @@ function Footer() {
                             Ayn kind of contribution is appreciated.
                         </Typography.Text >
                         <button>
-                            
-                                <h3>
+
+                            <h3>
+                                <a href="https://github.com/Anabil-Baruah/Cryptomedia"
+                                style={{textDecoration:'none', color:'inherit'}}
+                                >
                                     Github
-                                </h3>
-                                <FontAwesomeIcon
-                                    icon={faGithub}
-                                    style={{fontSize: '1.5rem'}}
-                                    // size={"2x"}
-                                />
-                            
+                                </a>
+                            </h3>
+                            <FontAwesomeIcon
+                                icon={faGithub}
+                                style={{ fontSize: '1.5rem' }}
+                            // size={"2x"}
+                            />
+
                         </button>
                     </Typography.Title>
                 </Col>
@@ -49,7 +53,7 @@ function Footer() {
                     <Typography.Text className='socials'><Link style={{ color: 'inherit', textDecoration: 'none' }}>Explore us</Link></Typography.Text >
                 </Col>
 
-                
+
             </Row>
 
         </div>
