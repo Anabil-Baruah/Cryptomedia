@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input, Typography } from 'antd'
-import { useGetCryptosQuery } from '../services/cryptoApi'
+import { useGetCryptosQuery } from '../../services/cryptoApi'
 import millify from 'millify'
-import Loader from './Loader'
+import Loader from '../Loader'
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
 function Cryptocurrencies({ simplified }) {

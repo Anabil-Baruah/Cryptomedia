@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
-import useAuth from '../hooks/useAuth'
+import useAuth from '../../hooks/useAuth'
 import { Form, Input, Button, Image, Card, Row, Col, message } from 'antd'
-import Divider from './HorizontaLine '
-import Loader from './Loader'
-import loginImg from '../images/ai.png'
-import google from '../images/google.png'
-import useNotificationManager from './helperFunctions/notifications';
-import { validatePassword } from './helperFunctions/formValidators'
-import axios from '../services/axios.js'
+import Divider from '../HorizontaLine '
+import Loader from '../Loader'
+import loginImg from '../../images/ai.png'
+import google from '../../images/google.png'
+import useNotificationManager from '../helperFunctions/notifications';
+// import { validatePassword } from '../helperFunctions/formValidators'
+import axios from '../../services/axios.js'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 

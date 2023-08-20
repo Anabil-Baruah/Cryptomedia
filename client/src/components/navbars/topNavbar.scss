@@ -1,0 +1,52 @@
+
+.top-navbar {
+    background-color: var(--bgSecondary);
+
+    .user-profile {
+        display: flex;
+        margin-left: auto;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        :nth-child(n) {
+            vertical-align: middle;
+        }
+
+        .theme-switcher {
+            :nth-child(1) {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        .theme-switcher:hover {
+            cursor: pointer;
+        }
+
+
+        .user-content .ant-avatar {
+            margin-right: 0.4rem;
+        }
+
+        .user-name {
+            color: var(--text-primary);
+        }
+
+        .menu-item-with-icon {
+            position: relative;
+
+            .icon {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    @media screen and (max-width:800px) {
+        // display: none;
+        // position: fixed;
+        padding-right: 10px;
+    }
+}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Select, Typography, Row, Col, Avatar, Card } from 'antd'
-import { useGetCryptoNewsQuery } from '../services/crytpoNewsApi'
-import { useGetCryptosQuery } from '../services/cryptoApi'
+import { useGetCryptoNewsQuery } from '../../services/crytpoNewsApi'
+import { useGetCryptosQuery } from '../../services/cryptoApi'
 import moment from 'moment'
-import Loader from './Loader'
+import Loader from '../Loader'
 
 const { Text, Title } = Typography
 const { Option } = Select

@@ -13,10 +13,8 @@ import {
   RequireAuth
 } from './components'
 import './scss/App.scss'
-import './scss/footer.scss'
-import './scss/profile.scss'
-import Favourits from './components/Favourits'
-import Footer from './components/Footer'
+import Favourits from './components/favourites/Favourits'
+import Footer from './components/footer/Footer'
 import useAuth from './hooks/useAuth'
 
 function App() {

@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import env from '../env';
+const fetchNews_apiKey = import.meta.env.VITE_APP_BING_NEWS_API
 const cryptoNewsHeaders = {
     'X-BingApis-SDK': 'true',
-    'X-RapidAPI-Key': env.BING_NEWS_API,
+    'X-RapidAPI-Key': fetchNews_apiKey,
     'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
 }
 const baseUrl = 'https://bing-news-search1.p.rapidapi.com'

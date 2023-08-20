@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Card, Switch, Button, Divider, Timeline } from 'antd'
-import anonymousImg from "../images/anonymous.png"
-import PasswordChange from './modals/PasswordChange';
+import anonymousImg from "../../images/anonymous.png"
+// import PasswordChange from '../modals/PasswordChange';
 import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
-import axios from '../services/axios'
+import axios from '../../services/axios'
+import './profile.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarkerAlt, faCalendar } from '@fortawesome/free-solid-svg-icons';
 // import Divider from './HorizontaLine '
-import { formatDate } from './helperFunctions/formValidators'
+import { formatDate } from '../helperFunctions/formValidators'
 
 function ProfilePage() {
     const [username, setUsername] = useState()

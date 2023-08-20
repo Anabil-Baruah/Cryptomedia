@@ -4,11 +4,11 @@ import millify from 'millify'
 import { useParams } from 'react-router-dom'
 import { Col, Row, Typography, Select, Button, message } from 'antd'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
-import LineChart from './LineChart'
-import Loader from './Loader';
-import axios from '../services/axios'
-import useAuth from '../hooks/useAuth'
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../../services/cryptoApi'
+import LineChart from '../LineChart'
+import Loader from '../Loader';
+import axios from '../../services/axios'
+import useAuth from '../../hooks/useAuth'
 
 const { Title, Text } = Typography
 const { Option } = Select

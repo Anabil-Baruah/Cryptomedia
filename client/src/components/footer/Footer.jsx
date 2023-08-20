@@ -4,6 +4,8 @@ import { FacebookOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom'
+import './footer.scss'
+
 
 function Footer() {
     return (

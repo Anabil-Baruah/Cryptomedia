@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import '../scss/EditProfile.scss'
+import './EditProfile.scss'
 import { Col, Row, Form, Input, Button, Upload, Checkbox } from 'antd'
 import { UploadOutlined, CloseOutlined } from '@ant-design/icons'
-import anonymousImg from "../images/anonymous.png"
-import axios from '../services/axios.js'
-import useNotificationManager from './helperFunctions/notifications';
+import anonymousImg from "../../images/anonymous.png"
+import axios from '../../services/axios.js'
+import useNotificationManager from '../helperFunctions/notifications';
 
 
 

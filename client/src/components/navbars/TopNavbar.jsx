@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Layout, Menu, Switch, Avatar, Dropdown, message, Popconfirm } from 'antd';
 import { UserOutlined, LogoutOutlined, SettingOutlined, LoginOutlined } from '@ant-design/icons';
-import sunIcon from '../images/sun_icon.png';
-import moonIcon from '../images/moon_icon.png';
+import sunIcon from '../../images/sun_icon.png';
+import moonIcon from '../../images/moon_icon.png';
 import { Link } from 'react-router-dom';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
+import './topNavbar.scss';
 
 
 const { Header } = Layout;
