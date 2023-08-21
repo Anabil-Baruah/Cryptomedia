@@ -16,20 +16,16 @@ import './scss/App.scss'
 import Favourits from './components/favourites/Favourits'
 import Footer from './components/footer/Footer'
 import useAuth from './hooks/useAuth'
+import useTheme from './hooks/useTheme'
 
 function App() {
 
   const { auth } = useAuth()
+  console.log(useTheme(), "auth")
   const isLogin = auth.accessToken ? true : false
 
-  const user = {
-    name: 'John Doe'
-  };
 
-  const handleThemeToggle = (newTheme) => {
-    // Handle theme toggle logic here
-    console.log('Theme changed:', newTheme);
-  };
+
 
   return (
     <>
@@ -38,7 +34,7 @@ function App() {
           <Navbar />
         </div>
         <div className="main" >
-          <TopNavbar user={user} onThemeToggle={handleThemeToggle} />
+          <TopNavbar />
           <Layout>
             <div className="routes">
               <Routes>

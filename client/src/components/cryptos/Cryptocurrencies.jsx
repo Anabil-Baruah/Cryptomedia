@@ -22,9 +22,6 @@ function Cryptocurrencies({ simplified }) {
 
   if (isFetching) return <Loader loading={true} />;
 
-
-
-
   return (
     <div>
       {!simplified && (
@@ -34,8 +31,8 @@ function Cryptocurrencies({ simplified }) {
       )}
       <Row gutter={[32, 32]} className='crypto-card-container'>
         {
-          cryptos?.map((currency) => (
-            <Col xs={24} sm={12} lg={6} className='crypto-card' key={currency?.id}>
+          cryptos?.map((currency, index) => (
+            <Col xs={24} sm={12} lg={6} className='crypto-card' key={index}>
               <Link to={`/crypto/${currency?.uuid}`}>
 
                 <Card

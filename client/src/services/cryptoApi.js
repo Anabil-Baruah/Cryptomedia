@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const fetchCrypto_apiKey = import.meta.env.VITE_APP_REACT_APP_API_KEY
-console.log('fetchCrypto_apiKey', fetchCrypto_apiKey)
 
 const baseUrl = 'https://coinranking1.p.rapidapi.com'
 

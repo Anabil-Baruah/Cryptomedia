@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, UserOutlined, SettingOutlined, DollarOutlined, StarFilled } from '@ant-design/icons'
+import logoDark from '../../images/logo-dark-theme.svg'
+import logoLight from '../../images/logo-light-theme.svg'
 import icon from '../../images/cryptocurrency.png'
 
 const Navbar = () => {
@@ -26,7 +28,9 @@ const Navbar = () => {
       <div className="logo-container">
         {/* <Avatar src={icon} size="large" /> */}
         <Typography.Title className='logo' level={2}>
-          <Link to="/">Cryptomedia</Link>
+          <Link to="/">
+            <img src={logoLight} width={200} alt="" />
+          </Link>
         </Typography.Title>
         <Button
           className='menu-control-container'

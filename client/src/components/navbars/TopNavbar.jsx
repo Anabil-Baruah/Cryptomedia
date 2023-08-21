@@ -1,19 +1,20 @@
 import { useState } from 'react';
-import { Layout, Menu, Switch, Avatar, Dropdown, message, Popconfirm } from 'antd';
+import { Layout, Menu, Avatar, Dropdown, message, Popconfirm } from 'antd';
 import { UserOutlined, LogoutOutlined, SettingOutlined, LoginOutlined } from '@ant-design/icons';
 import sunIcon from '../../images/sun_icon.png';
 import moonIcon from '../../images/moon_icon.png';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useTheme from '../../hooks/useTheme';
 import './topNavbar.scss';
 
 
 const { Header } = Layout;
 
-const TopNavbar = ({ user, onThemeToggle }) => {
-    const [theme, setTheme] = useState('light');
+const TopNavbar = () => {
     const { logout } = useAuth();
-    const { auth } = useAuth()
+    const { auth } = useAuth();
+    // const { theme, toggleTheme} = useTheme();
     const username = auth.username
 
     const isLogin = auth.accessToken ? true : false
@@ -21,7 +22,7 @@ const TopNavbar = ({ user, onThemeToggle }) => {
     const cancel = (e) => {
         console.log(e);
     };
-
+    const [theme, setTheme] = useState('dark'); 
     function setDarkMode() {
         document.querySelector('.app').setAttribute('data-theme', 'dark')
     }
@@ -31,7 +32,7 @@ const TopNavbar = ({ user, onThemeToggle }) => {
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
-        onThemeToggle(newTheme);
+        // onThemeToggle(newTheme);
         newTheme === 'dark' ? setDarkMode() : setLightMode();
     };
     const menu = (
