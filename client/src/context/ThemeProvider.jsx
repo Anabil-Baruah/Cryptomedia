@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 
-const ThemeContext = createContext({ctx_key:"ctx_value"});
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children })=> {
-    const [theme, setTheme] = useState('light'); 
+    const [theme, setTheme] = useState('dark'); 
   
     
     function setDarkMode() {
@@ -28,4 +28,4 @@ export const ThemeProvider = ({ children })=> {
   }
 
 
-export default ThemeProvider;
+export default ThemeContext;

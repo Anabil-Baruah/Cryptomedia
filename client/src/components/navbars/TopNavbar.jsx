@@ -14,7 +14,7 @@ const { Header } = Layout;
 const TopNavbar = () => {
     const { logout } = useAuth();
     const { auth } = useAuth();
-    // const { theme, toggleTheme} = useTheme();
+    const { theme, toggleTheme} = useTheme();
     const username = auth.username
 
     const isLogin = auth.accessToken ? true : false
@@ -22,19 +22,7 @@ const TopNavbar = () => {
     const cancel = (e) => {
         console.log(e);
     };
-    const [theme, setTheme] = useState('dark'); 
-    function setDarkMode() {
-        document.querySelector('.app').setAttribute('data-theme', 'dark')
-    }
-    function setLightMode() {
-        document.querySelector('.app').setAttribute('data-theme', 'light')
-    }
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        // onThemeToggle(newTheme);
-        newTheme === 'dark' ? setDarkMode() : setLightMode();
-    };
+//    console.log(theme, "theme")
     const menu = (
         <Menu size="largest">
             <Menu.Item icon={<SettingOutlined />} key="1">Settings</Menu.Item>

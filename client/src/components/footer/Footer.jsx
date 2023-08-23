@@ -28,22 +28,22 @@ function Footer() {
                         <Typography.Text className='socials' style={{ marginTop: '2rem' }}>
                             Ayn kind of contribution is appreciated.
                         </Typography.Text >
-                        <button>
+                        <a href="https://github.com/Anabil-Baruah/Cryptomedia"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                        >
+                            <button>
 
-                            <h3>
-                                <a href="https://github.com/Anabil-Baruah/Cryptomedia"
-                                style={{textDecoration:'none', color:'inherit'}}
-                                >
+                                <h3>
                                     Github
-                                </a>
-                            </h3>
-                            <FontAwesomeIcon
-                                icon={faGithub}
-                                style={{ fontSize: '1.5rem' }}
-                            // size={"2x"}
-                            />
+                                </h3>
+                                <FontAwesomeIcon
+                                    icon={faGithub}
+                                    style={{ fontSize: '1.5rem' }}
+                                // size={"2x"}
+                                />
 
-                        </button>
+                            </button>
+                        </a>
                     </Typography.Title>
                 </Col>
 

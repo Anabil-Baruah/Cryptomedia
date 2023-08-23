@@ -21,7 +21,7 @@ import useTheme from './hooks/useTheme'
 function App() {
 
   const { auth } = useAuth()
-  console.log(useTheme(), "auth")
+  console.log(useTheme(), "theme")
   const isLogin = auth.accessToken ? true : false
 
 
