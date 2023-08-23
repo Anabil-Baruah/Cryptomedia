@@ -18,15 +18,21 @@ function Cryptocurrencies({ simplified }) {
     setCryptos(filterData)
   }, [cryptoList, search])
 
-
-
   if (isFetching) return <Loader loading={true} />;
 
   return (
     <div>
       {!simplified && (
-        <div className="search-crypto">
-          <Input placeholder='Search Crypto' onChange={(e) => setSearch(e.target.value)} />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px',
+            marginBottom: '2rem'
+          }}
+        >
+          <h4>Search cryptos:</h4>
+          <Input placeholder='Search Crypto' className='select-news-crypto' onChange={(e) => setSearch(e.target.value)} />
         </div>
       )}
       <Row gutter={[32, 32]} className='crypto-card-container'>
@@ -59,13 +65,11 @@ function Cryptocurrencies({ simplified }) {
           ))
         }
         {simplified && (
-          <Card className='card' hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent' }}>
-            <Typography.Text type="secondary" style={{ fontSize: '40px' }}>
+            <Typography.Text type="secondary" style={{ fontSize: '30px' }}>
               <Link to="/cryptocurrencies" style={{ textDecoration: 'none' }}>
                 Show more +
               </Link>
             </Typography.Text>
-          </Card>
         )}
 
       </Row>

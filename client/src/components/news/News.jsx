@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd'
+import { Select, Typography, Row, Col, Avatar, Card, Input } from 'antd'
 import { useGetCryptoNewsQuery } from '../../services/crytpoNewsApi'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 import moment from 'moment'
@@ -16,26 +16,24 @@ function News({ simplified }) {
   const { data } = useGetCryptosQuery(100)
   if (!cryptoNews?.value) return <Loader loading={true} />;
 
-  console.log(data)
+  // console.log(cryptoNews?.value)
   return (
     <div>
       <Row gutter={[24, 24]}>
         {
           !simplified && (
 
-            <Col span={24} style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Select
-                showSearch
-                className='select-news'
-                placeholder='Select a Crypto'
-                optionFilterProp='children'
-                onChange={(value) => setNewsCategory(value)}
-                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                disabled={simplified} // Disable the select if simplified prop is true
+            <Col span={24} >
+              <div
+                style={{display:'flex',
+                flexDirection:'column',
+                gap:'10px'}}
               >
-                <Option value="Cryptocurency">Cryptocurrency</Option>
-                {data?.data?.coins?.map((currency) => <Option value={currency.name} style={{ display: 'flex', justifyContent: 'center' }}>{currency.name}</Option>)}
-              </Select>
+                <h4>Search news:</h4>
+                <Input
+                  className='select-news-crypto'
+                  onChange={(e) => setNewsCategory(e.target.value)} />
+              </div>
             </Col>
 
           )
@@ -67,13 +65,11 @@ function News({ simplified }) {
           ))
         }
         {simplified && (
-          <Card hoverable style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', maxHeight: '10rem', marginTop: 'auto', marginBottom: 'auto', backgroundColor: 'transparent' }}>
-            <Typography.Text type="secondary" style={{ fontSize: '40px' }}>
-              <Link to="/news" style={{ textDecoration: 'none', color: 'var(--text-primary)' }}>
+            <Typography.Text type="secondary" style={{ fontSize: '30px' }}>
+              <Link to="/news" style={{ textDecoration: 'none' }}>
                 Show more +
               </Link>
             </Typography.Text>
-          </Card>
         )}
       </Row>
     </div>

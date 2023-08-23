@@ -420,9 +420,19 @@ a:hover {
     }
 }
 
-.select-news {
-    width: 180px;
+.select-news-crypto {
+    width: 250px;
+    height: 40px;
+    background-color: var(--bgPrimary);
+    color: var(--text-primary);
+    border-color: var(--border);
+    
+    &:focus {
+        box-shadow: 0 0 15px 0 var(--hover-color);
+      }
+    
 }
+
 
 .news-card {
     min-height: 300px !important;
@@ -517,10 +527,6 @@ a:hover {
     margin: 0px 10px !important;
 }
 
-.search-crypto {
-    margin: 20px auto 30px auto;
-    width: 250px;
-}
 
 .crypto-card-container {
     min-height: 65vh !important;
