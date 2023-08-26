@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HTMLReactParser from 'html-react-parser'
 import millify from 'millify'
 import { useParams } from 'react-router-dom'
@@ -19,32 +19,55 @@ function CryptoDetails() {
 
   const { coinId } = useParams()
   const [timePeriod, setTimePeriod] = useState('7d')
+  const [addCoinbtn, setAddCoinbtn] = useState(false)
+  const [btnTxt, setBtnTxt] = useState('Add to favourits')
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
   const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
   const { auth } = useAuth()
 
   const isLogin = auth.accessToken ? true : false
 
+  useEffect(() => {
+    axios.get('/api/favourites')
+      .then((res) => {
+        if (res.data.favourites.includes(coinId))
+          setAddCoinbtn(true)
+        setBtnTxt('Remove from favourits')
+      })
+  })
+
 
   if (isFetching) return <Loader loading={true} />
   const cryptoDetails = data?.data?.coin
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
-  console.log(cryptoDetails)
-  const addToFav = (id) => {
-    console.log(id)
-
-    axios.post('/api/favourites', { id })
-      .then((response) => {
-        if (response.status == 200) {
-          message.success(response.data.message)
-        } else {
-          message.error(`${message.data.message}`)
-        }
-      }).catch((error) => {
-        console.log(error)
-        message.error('Server error')
-      })
+  const toggleFavSelect = (id, btnState) => {
+    console.log(btnState)
+    if (!btnState) {
+      axios.post('/api/favourites', { id })
+        .then((response) => {
+          if (response.status == 200) {
+            message.success(response.data.message)
+          } else {
+            message.error(`${message.data.message}`)
+          }
+        }).catch((error) => {
+          console.log(error)
+          message.error('Server error')
+        })
+    } else {
+      axios.delete(`/api/favourites/${id}`)
+        .then((response) => {
+          if (response.status == 200) {
+            message.success(response.data.message)
+          } else {
+            message.error(`${message.data.message}`)
+          }
+        }).catch((error) => {
+          console.log(error)
+          message.error('Server error')
+        })
+    }
   }
 
   const stats = [
@@ -75,24 +98,36 @@ function CryptoDetails() {
           </p>
         </Col>
         <Row className='add-to-fav'>
-          {isLogin && <Button
-            onClick={() => addToFav(cryptoDetails?.uuid)}
-          >Add to favourits</Button>}
+          {isLogin && (<Button
+            type="primary"
+            // danger={addCoinbtn == "danger" ? true : false}
+            {...(addCoinbtn ? { danger: true } : {})}
+            onClick={() => {
+              toggleFavSelect(cryptoDetails?.uuid, addCoinbtn),
+                setAddCoinbtn(!addCoinbtn),
+                setBtnTxt(addCoinbtn ? 'Add to favourits' : 'Remove from favourits')
+            }}
+          >{btnTxt}</Button>)}
 
         </Row>
-        <Select
+        <select
           defaultValue="7d"
           className="select-timeperiod"
-          placeholder="Select time period"
-          onChange={(value) => setTimePeriod(value)}
-          style={{marginBottom:'1rem'}}
+          onChange={(e) => setTimePeriod(e.target.value)}
         >
-          {time.map((date) => <Option key={date}>{date}</Option>)}
-        </Select>
-        <LineChart coinHistory={coinHistory}
-          currentPrice={millify(cryptoDetails?.price)}
-          coinName={cryptoDetails?.name}
-        />
+          {time.map((date) => (
+            <option key={date} value={date}>
+              {date}
+            </option>
+          ))}
+        </select>
+
+        <div className="card hover-off coin-graph">
+
+          <LineChart coinHistory={coinHistory}
+            currentPrice={millify(cryptoDetails?.price)}
+            coinName={cryptoDetails?.name}
+          /></div>
         <Col className='stats-container'>
           <Col className='coin-value-statistics'>
             <Col className='coin-value statistics-heading'>

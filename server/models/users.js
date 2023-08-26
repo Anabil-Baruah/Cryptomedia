@@ -42,7 +42,6 @@ const userSchema = new mongoose.Schema({
     favourits: {
       type: [String], 
       default: [],   
-      unique: true,
     }
   }
 });

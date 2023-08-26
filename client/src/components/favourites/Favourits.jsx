@@ -56,7 +56,7 @@ function Favourites() {
 
   if (isError) {
     // Handle the error condition here, show an error message or take appropriate action
-    return <Loader loading={true} />;
+    return <h1>Not data found</h1>;
   }
 
   return (

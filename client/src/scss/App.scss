@@ -52,7 +52,7 @@ a:hover {
     width: 100%;
 
     .logo {
-        margin: 0 0 0 15px;
+        margin: 10px 0 0 15px;
         color: var(--text-primary);
 
         a {
@@ -151,14 +151,16 @@ a:hover {
             // align-items: flex-end;
         }
     }
+
+    &:hover {
+        box-shadow: 0 0 10px 0 var(--hover-color);
+
+    }
+
+    &.hover-off {
+        box-shadow: none;
+    }
 }
-
-.card:hover {
-    box-shadow: 0 0 10px 0 var(--hover-color);
-
-}
-
-
 
 .menu-control-container {
     display: none !important;
@@ -202,7 +204,7 @@ a:hover {
 
     .main {
         flex: 1;
-        margin-top: 80px;
+        margin-top: 78px;
         margin-left: 0px;
         margin-right: 10px;
     }
@@ -238,14 +240,6 @@ a:hover {
         justify-content: flex-end;
         margin-bottom: 20px;
 
-        .ant-btn {
-            background-color: var(--bgPrimary);
-            color: var(--text-primary);
-        }
-
-        .ant-btn:hover {
-            box-shadow: 0 0 10px 0 var(--hover-color);
-        }
     }
 
     .price-container {
@@ -253,6 +247,33 @@ a:hover {
             color: var(--text-primary);
         }
     }
+
+    .select-timeperiod {
+        width: 100%;
+        padding: 8px;
+        background-color: var(--bgPrimary);
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        border-radius: 10px;
+
+        option {
+            margin: 4px;
+            background-color: var(--bgPrimary);
+            color: var(--text-primary);
+            font-size: large;
+            /* Add margin to create spacing between options */
+        }
+    }
+
+    .select-timeperiod:hover {
+        cursor: pointer;
+    }
+
+    .coin-graph {
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
 }
 
 .coin-heading-container {
@@ -426,11 +447,11 @@ a:hover {
     background-color: var(--bgPrimary);
     color: var(--text-primary);
     border-color: var(--border);
-    
+
     &:focus {
         box-shadow: 0 0 15px 0 var(--hover-color);
-      }
-    
+    }
+
 }
 
 
